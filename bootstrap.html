@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap | Asim Titung ePortfolio</title>
+
+  <style>
+    /* ── Reset & Base ── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f7fb;
+      color: #212529;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      color: white;
+      text-align: center;
+      padding: 50px 20px 40px;
+    }
+    header img {
+      height: 65px;
+      display: block;
+      margin: 0 auto 14px;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ── Navigation ── */
+    nav {
+      background: #1a1a2e;
+      padding: 14px;
+      text-align: center;
+      border-bottom: 3px solid #e94560;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 16px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #e94560; }
+    nav a.active { color: #e94560; }
+
+    /* ── Sections ── */
+    section {
+      max-width: 900px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: #0f3460;
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+    }
+    p { line-height: 1.75; margin-bottom: 12px; }
+
+    /* ── Code Box ── */
+    .code-box {
+      background: #1e1e2f;
+      color: #f8f8f2;
+      padding: 18px 20px;
+      border-radius: 10px;
+      font-family: Consolas, 'Courier New', monospace;
+      font-size: 0.92rem;
+      margin: 14px 0;
+      overflow-x: auto;
+      border-left: 4px solid #e94560;
+      line-height: 1.7;
+    }
+
+    /* ── Output Box ── */
+    .output-box {
+      background: #ffffff;
+      border: 2px solid #0f3460;
+      padding: 24px;
+      border-radius: 10px;
+      margin-bottom: 35px;
+    }
+    .output-label {
+      font-weight: 700;
+      color: #0f3460;
+      margin: 14px 0 8px;
+      font-size: 1rem;
+    }
+
+    /* ── Simulated Bootstrap: Navbar ── */
+    .sim-navbar {
+      background: #0f3460;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-radius: 8px;
+    }
+    .sim-navbar .brand {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .sim-navbar .nav-links a {
+      color: rgba(255,255,255,0.75);
+      margin-left: 18px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .sim-navbar .nav-links a:hover { color: #fff; }
+
+    /* ── Simulated Bootstrap: Badge ── */
+    .sim-badge {
+      display: inline-block;
+      padding: 5px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin: 4px 3px;
+    }
+    .badge-primary   { background: #0d6efd; color: #fff; }
+    .badge-success   { background: #198754; color: #fff; }
+    .badge-warning   { background: #ffc107; color: #212529; }
+    .badge-danger    { background: #dc3545; color: #fff; }
+    .badge-secondary { background: #6c757d; color: #fff; }
+
+    /* ── Simulated Bootstrap: Alert ── */
+    .sim-alert {
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      border-left: 5px solid;
+    }
+    .alert-info    { background: #cff4fc; border-color: #0dcaf0; color: #055160; }
+    .alert-success { background: #d1e7dd; border-color: #198754; color: #0a3622; }
+    .alert-warning { background: #fff3cd; border-color: #ffc107; color: #664d03; }
+
+    /* ── Simulated Bootstrap: Grid ── */
+    .sim-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .sim-col {
+      flex: 1;
+      min-width: 120px;
+      padding: 18px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .col-blue   { background: #dbeafe; color: #1e3a5f; }
+    .col-green  { background: #dcfce7; color: #14532d; }
+    .col-purple { background: #ede9fe; color: #3b0764; }
+    .col-orange { background: #ffedd5; color: #7c2d12; }
+
+    /* ── Footer ── */
+    footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.75);
+      text-align: center;
+      padding: 18px;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" alt="Bootstrap Logo">
+    <h1>Bootstrap 5</h1>
+    <p>Simulating Bootstrap Components using HTML &amp; CSS</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="fullstack.html">Full-Stack</a>
+    <a href="html.html">HTML</a>
+    <a href="css.html">CSS</a>
+    <a href="bootstrap.html" class="active">Bootstrap</a>
+    <a href="javascript.html">JavaScript</a>
+  </nav>
+
+  <!-- Intro -->
+  <section>
+    <h2>📘 What is Bootstrap?</h2>
+    <p>
+      <b>Bootstrap</b> is a free and open-source front-end CSS framework originally developed
+      by Twitter. It provides a collection of ready-to-use components — such as navbars, buttons,
+      cards, grids, alerts and badges — allowing developers to build <b>responsive,
+      mobile-friendly</b> websites much faster than writing CSS from scratch.
+    </p>
+    <p>
+      Bootstrap uses a powerful <b>12-column grid system</b> powered by Flexbox, along with
+      responsive utility classes for spacing, typography and layout. Below, we recreate three
+      core Bootstrap-style components using only <b>HTML &amp; CSS</b>.
+    </p>
+  </section>
+
+  <!-- ── Example 1: Navbar ── -->
+  <section>
+    <h2>🧭 Example 1: Bootstrap Navbar</h2>
+    <p>A responsive navigation bar with a brand name and navigation links — one of the most commonly used Bootstrap components.</p>
+
+    <div class="code-box">
+&lt;nav class="navbar navbar-dark bg-primary"&gt;<br>
+&nbsp;&nbsp;&lt;div class="container"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="navbar-brand"&gt;Asim Portfolio&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="nav-links"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Home&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Projects&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Contact&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;/div&gt;<br>
+&lt;/nav&gt;
+    </div>
+
+    <p class="output-label">▶ Output:</p>
+    <div class="output-box">
+      <div class="sim-navbar">
+        <span class="brand">Asim Portfolio</span>
+        <div class="nav-links">
+          <a href="#">Home</a>
+          <a href="#">Projects</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Example 2: Badges & Alerts ── -->
+  <section>
+    <h2>🏷️ Example 2: Bootstrap Badges &amp; Alerts</h2>
+    <p>Badges are small labels used to highlight skill tags or statuses. Alerts display contextual messages to users.</p>
+
+    <div class="code-box">
+&lt;!-- Badges --&gt;<br>
+&lt;span class="badge bg-primary"&gt;HTML&lt;/span&gt;<br>
+&lt;span class="badge bg-success"&gt;CSS&lt;/span&gt;<br>
+&lt;span class="badge bg-warning"&gt;JavaScript&lt;/span&gt;<br>
+&lt;span class="badge bg-danger"&gt;React&lt;/span&gt;<br>
+&lt;span class="badge bg-secondary"&gt;Node.js&lt;/span&gt;<br>
+<br>
+&lt;!-- Alerts --&gt;<br>
+&lt;div class="alert alert-info"&gt;ℹ️ Your profile was updated.&lt;/div&gt;<br>
+&lt;div class="alert alert-success"&gt;✅ Project submitted successfully!&lt;/div&gt;<br>
+&lt;div class="alert alert-warning"&gt;⚠️ Deadline is tomorrow.&lt;/div&gt;
+    </div>
+
+    <p class="output-label">▶ Output:</p>
+    <div class="output-box">
+      <div style="margin-bottom:16px">
+        <span class="sim-badge badge-primary">HTML</span>
+        <span class="sim-badge badge-success">CSS</span>
+        <span class="sim-badge badge-warning">JavaScript</span>
+        <span class="sim-badge badge-danger">React</span>
+        <span class="sim-badge badge-secondary">Node.js</span>
+      </div>
+      <div class="sim-alert alert-info">ℹ️ Your profile was updated.</div>
+      <div class="sim-alert alert-success">✅ Project submitted successfully!</div>
+      <div class="sim-alert alert-warning">⚠️ Deadline is tomorrow.</div>
+    </div>
+  </section>
+
+  <!-- ── Example 3: Responsive Grid ── -->
+  <section>
+    <h2>📐 Example 3: Bootstrap Responsive Grid</h2>
+    <p>Bootstrap's grid system divides a page into 12 columns. Using <code>col-md-3</code>, each column takes 3 of 12 columns (25%) — giving us a 4-column layout that stacks vertically on small screens.</p>
+
+    <div class="code-box">
+&lt;div class="row g-3"&gt;<br>
+&nbsp;&nbsp;&lt;div class="col-md-3"&gt;Frontend&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;div class="col-md-3"&gt;Backend&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;div class="col-md-3"&gt;Database&lt;/div&gt;<br>
+&nbsp;&nbsp;&lt;div class="col-md-3"&gt;DevOps&lt;/div&gt;<br>
+&lt;/div&gt;
+    </div>
+
+    <p class="output-label">▶ Output:</p>
+    <div class="output-box">
+      <div class="sim-row">
+        <div class="sim-col col-blue">🖥️<br>Frontend</div>
+        <div class="sim-col col-green">⚙️<br>Backend</div>
+        <div class="sim-col col-purple">🗄️<br>Database</div>
+        <div class="sim-col col-orange">🚀<br>DevOps</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© <script>document.write(new Date().getFullYear())</script> Asim Titung ePortfolio | Bootstrap Module</p>
+  </footer>
+
+</body>
+</html>

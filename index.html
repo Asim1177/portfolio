@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Asim Titung – Full Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root{--bg:#0a0e17;--surface:#111827;--border:rgba(255,255,255,0.06);--text:#e2e8f0;--muted:#64748b;--accent:#22d3ee;--accent2:#818cf8;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(34,211,238,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.025) 1px,transparent 1px);background-size:60px 60px;z-index:0;pointer-events:none}
+    .navbar,.hero,.section-wrap,section,footer{position:relative;z-index:1}
+    .navbar{background:rgba(10,14,23,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .navbar-brand{font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;background:linear-gradient(135deg,#22d3ee,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-link{color:var(--muted)!important;font-weight:500;transition:.2s}
+    .nav-link:hover,.nav-link.active{color:var(--accent)!important}
+    .btn-accent{background:linear-gradient(135deg,#22d3ee,#818cf8);color:#fff;border:none;border-radius:8px;font-weight:600;padding:.45rem 1.15rem;font-size:.9rem}
+    .btn-outline-accent{border:1px solid var(--accent);color:var(--accent);border-radius:8px;padding:.45rem 1.15rem;font-weight:600;font-size:.9rem;background:transparent;transition:.2s}
+    .btn-outline-accent:hover{background:var(--accent);color:#000}
+    .hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;background:radial-gradient(ellipse 80% 60% at 65% 20%,rgba(34,211,238,.08),transparent 65%),radial-gradient(ellipse 60% 50% at 15% 85%,rgba(129,140,248,.07),transparent 60%)}
+    .hero-label{font-size:.82rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:8px;margin-bottom:1.2rem}
+    .hero-label::before{content:'';display:inline-block;width:28px;height:2px;background:var(--accent)}
+    .hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:800;line-height:1.08;margin-bottom:1rem}
+    .hero h1 span{background:linear-gradient(135deg,#22d3ee,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-desc{color:var(--muted);font-size:1.05rem;max-width:460px;margin-bottom:2rem;line-height:1.75}
+    .tech-badge{display:inline-block;padding:.3rem .75rem;border:1px solid var(--border);border-radius:99px;font-size:.82rem;color:var(--muted);background:rgba(255,255,255,.02)}
+    .avatar-block{position:relative;width:min(380px,85vw);margin:0 auto}
+    .avatar-glow{position:absolute;inset:-25px;border-radius:30px;background:conic-gradient(from 30deg,rgba(34,211,238,.5),rgba(129,140,248,.5),rgba(34,211,238,.5));filter:blur(35px);opacity:.28;animation:rotateSlow 14s linear infinite}
+    @keyframes rotateSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+    .avatar-card{position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(34,211,238,.15);background:var(--surface);box-shadow:0 40px 100px rgba(0,0,0,.5)}
+    .avatar-card img{width:100%;height:430px;object-fit:cover;object-position:top center;display:block}
+    .avatar-badge{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);background:rgba(10,14,23,.88);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:99px;padding:.42rem 1.2rem;font-size:.83rem;color:var(--accent);white-space:nowrap;font-weight:600}
+    .dot-blink{display:inline-block;width:8px;height:8px;border-radius:50%;background:#22c55e;animation:blink 1.6s ease-in-out infinite;margin-right:6px}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+    section{padding:90px 0}
+    .eyebrow{font-size:.76rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+    .sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;margin-bottom:.5rem}
+    .sec-sub{color:var(--muted);margin-bottom:2.4rem}
+    .glass-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:26px;height:100%;transition:.25s}
+    .glass-card:hover{transform:translateY(-5px);border-color:rgba(34,211,238,.2);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+    .icon-sq{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:1rem;background:rgba(34,211,238,.07);color:var(--accent);border:1px solid rgba(34,211,238,.15)}
+    .icon-sq.v2{background:rgba(129,140,248,.07);color:var(--accent2);border-color:rgba(129,140,248,.15)}
+    .skill-chip{background:rgba(34,211,238,.05);border:1px solid rgba(34,211,238,.13);color:var(--accent);border-radius:10px;padding:.5rem 1rem;font-weight:600;font-size:.9rem;text-align:center;transition:.2s}
+    .skill-chip:hover{background:rgba(34,211,238,.12)}
+    .proj-thumb{border-radius:13px;overflow:hidden;aspect-ratio:16/9;background:#0b1020;margin-bottom:1rem}
+    .proj-thumb img{width:100%;height:100%;object-fit:cover;transition:.4s}
+    .glass-card:hover .proj-thumb img{transform:scale(1.06)}
+    .tag-pill{font-size:.78rem;border:1px solid var(--border);padding:.2rem .6rem;border-radius:99px;color:var(--muted)}
+    .form-control,.form-select{background:#0c1220;border:1px solid var(--border);color:var(--text);border-radius:10px}
+    .form-control:focus{background:#0c1220;border-color:var(--accent);color:var(--text);box-shadow:0 0 0 3px rgba(34,211,238,.1)}
+    .form-label{color:var(--muted);font-size:.88rem;margin-bottom:.4rem}
+    footer{border-top:1px solid var(--border);color:var(--muted);padding:2rem 0;font-size:.9rem}
+    a{color:inherit;text-decoration:none}
+    .text-accent{color:var(--accent)}
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">AT</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-1">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/fullstack.html">Full Stack</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/html.html">HTML</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/css.html">CSS</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/bootstrap.html">Bootstrap</a></li>
+          <li class="nav-item"><a class="nav-link" href="pages/javascript.html">JavaScript</a></li>
+        </ul>
+        <a class="btn btn-accent ms-lg-3" href="#contact"><i class="bi bi-send me-1"></i>Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <p class="hero-label">Open to opportunities</p>
+          <h1>Hi, I'm<br><span>Asim Titung</span><br>Dev &amp; Builder.</h1>
+          <p class="hero-desc">I design and build performant web experiences from pixel-perfect frontends to rock-solid back-end services that scale.</p>
+          <div class="d-flex gap-3 flex-wrap mb-4">
+            <a href="#projects" class="btn btn-accent btn-lg"><i class="bi bi-grid-1x2 me-2"></i>View Projects</a>
+            <a href="#" class="btn btn-outline-accent btn-lg"><i class="bi bi-file-earmark-person me-2"></i>My Resume</a>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <span class="tech-badge">HTML5</span>
+            <span class="tech-badge">CSS3</span>
+            <span class="tech-badge">Bootstrap</span>
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">React</span>
+            <span class="tech-badge">Node.js</span>
+            <span class="tech-badge">MongoDB</span>
+            <span class="tech-badge">Git/GitHub</span>
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center">
+          <div class="avatar-block">
+            <div class="avatar-glow"></div>
+            <div class="avatar-card">
+              <img src="image/titung.jpeg" alt="Asim Titung">
+              <div class="avatar-badge"><span class="dot-blink"></span>Available for hire</div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="divider"></div>
+
+  <section id="about">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <p class="eyebrow">Who I Am</p>
+          <h2 class="sec-title">Turning ideas into digital reality</h2>
+          <p class="sec-sub">I'm a dedicated Full Stack Developer who loves solving real problems through clean, efficient code. I enjoy working across the entire stack — from crafting intuitive interfaces to architecting reliable server-side systems.</p>
+          <ul class="list-unstyled">
+            <li class="mb-2 d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-accent"></i> Single &amp; multi-page web applications</li>
+            <li class="mb-2 d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-accent"></i> RESTful APIs and database architecture</li>
+            <li class="mb-2 d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-accent"></i> Responsive and accessible UI design</li>
+            <li class="mb-2 d-flex align-items-center gap-2"><i class="bi bi-check2-circle text-accent"></i> Code quality, testing and deployment</li>
+          </ul>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-3">
+            <div class="col-sm-6"><div class="glass-card"><div class="icon-sq"><i class="bi bi-display"></i></div><h5 class="fw-bold mb-1">Frontend Dev</h5><p class="text-secondary small">Building UIs with React and JavaScript, using Bootstrap and modern CSS for polished, responsive layouts.</p></div></div>
+            <div class="col-sm-6"><div class="glass-card"><div class="icon-sq v2"><i class="bi bi-hdd-rack"></i></div><h5 class="fw-bold mb-1">Backend Dev</h5><p class="text-secondary small">Node.js and Express APIs connected to MongoDB or PostgreSQL, secured with JWT authentication.</p></div></div>
+            <div class="col-sm-6"><div class="glass-card"><div class="icon-sq"><i class="bi bi-phone"></i></div><h5 class="fw-bold mb-1">Mobile-First</h5><p class="text-secondary small">Responsive layouts built mobile-first, ensuring a seamless experience on any device or viewport.</p></div></div>
+            <div class="col-sm-6"><div class="glass-card"><div class="icon-sq v2"><i class="bi bi-cloud-upload"></i></div><h5 class="fw-bold mb-1">Deployment</h5><p class="text-secondary small">Deploying apps to Vercel and Render with environment configs, CI basics, and uptime monitoring.</p></div></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="skills">
+    <div class="container">
+      <p class="eyebrow">Toolkit</p>
+      <h2 class="sec-title">Core Skills</h2>
+      <p class="sec-sub">Technologies I use on a regular basis</p>
+      <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-2"><div class="skill-chip">HTML5</div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="skill-chip">CSS3</div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="skill-chip">Bootstrap 5</div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="skill-chip">JavaScript</div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="skill-chip">Git &amp; GitHub</div></div>
+        <div class="col-6 col-md-4 col-lg-2"><div class="skill-chip">Node.js</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="projects">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
+        <div>
+          <p class="eyebrow">Portfolio</p>
+          <h2 class="sec-title mb-1">Recent Projects</h2>
+          <p class="sec-sub mb-0">A selection of work I've built</p>
+        </div>
+        <div class="d-flex gap-2">
+          <span class="tag-pill">All</span>
+          <span class="tag-pill">Frontend</span>
+          <span class="tag-pill">Full-Stack</span>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <article class="glass-card">
+            <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" alt="Analytics Dashboard"></div>
+            <h5 class="fw-bold mb-1">Analytics Dashboard</h5>
+            <p class="text-secondary small mb-3">React · Chart.js · Node.js · MongoDB</p>
+            <div class="d-flex gap-2">
+              <a class="btn btn-sm btn-accent" href="#"><i class="bi bi-box-arrow-up-right me-1"></i>Live</a>
+              <a class="btn btn-sm btn-outline-accent" href="#"><i class="bi bi-github me-1"></i>Code</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="glass-card">
+            <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800&auto=format&fit=crop" alt="Study Planner"></div>
+            <h5 class="fw-bold mb-1">Study Planner App</h5>
+            <p class="text-secondary small mb-3">Vanilla JS · Local Storage · CSS Grid</p>
+            <div class="d-flex gap-2">
+              <a class="btn btn-sm btn-accent" href="#">Live</a>
+              <a class="btn btn-sm btn-outline-accent" href="#">Code</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="glass-card">
+            <div class="proj-thumb"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=800&auto=format&fit=crop" alt="Recipe API"></div>
+            <h5 class="fw-bold mb-1">Recipe Finder API</h5>
+            <p class="text-secondary small mb-3">Express.js · PostgreSQL · JWT</p>
+            <div class="d-flex gap-2">
+              <a class="btn btn-sm btn-accent" href="#">Docs</a>
+              <a class="btn btn-sm btn-outline-accent" href="#">Code</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section id="contact">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <p class="eyebrow">Get In Touch</p>
+          <h2 class="sec-title">Let's build<br>something great</h2>
+          <p class="sec-sub">Have a project idea or want to collaborate? Drop me a message.</p>
+          <div class="d-flex flex-column gap-3 mt-2">
+            <a class="tech-badge d-inline-flex align-items-center gap-2" href="mailto:asim@example.com"><i class="bi bi-envelope-fill text-accent"></i> asim.titung@example.com</a>
+            <a class="tech-badge d-inline-flex align-items-center gap-2" href="#"><i class="bi bi-github text-accent"></i> github.com/asimtitung</a>
+            <a class="tech-badge d-inline-flex align-items-center gap-2" href="#"><i class="bi bi-linkedin text-accent"></i> linkedin.com/in/asimtitung</a>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="glass-card">
+            <form id="contactForm" >
+            <div class="row g-3">
+              <div class="col-md-6"><label class="form-label">Full Name</label><input type="text" class="form-control" id="name" placeholder="Your name"></div>
+              <div class="col-md-6"><label class="form-label">Email Address</label><input type="email" class="form-control" id="email" placeholder="you@email.com"></div>
+              <div class="col-12"><label class="form-label">Subject</label><input type="text" class="form-control" id="subject" placeholder="Project inquiry..."></div>
+              <div class="col-12"><label class="form-label">Message</label><textarea class="form-control" rows="4" id="message" placeholder="Tell me about your project..."></textarea></div>
+              <div class="col-12 text-end"><button type="submit" class="btn btn-accent btn-lg px-4">Send Message <i class="bi bi-arrow-right ms-2"></i></button></div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <span>© <span id="yr"></span> Asim Titung. All rights reserved.</span>
+      <div class="d-flex gap-4">
+        <a href="#" class="text-secondary">Home</a>
+        <a href="#projects" class="text-secondary">Projects</a>
+        <a href="#contact" class="text-secondary">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+
+
+
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const subject = document.getElementById("subject").value;
+  const message = document.getElementById("message").value;
+
+  const body = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+  const mailtoLink = `mailto:asim.titung@example.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+  window.location.href = mailtoLink;
+});
+</script>
+
+</body>
+</html>

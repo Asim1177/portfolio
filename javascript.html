@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript | Asim Titung ePortfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root{--yellow:#eab308;--dark:#0f1117;--surface:#161b27;--border:rgba(255,255,255,.07);--text:#e2e8f0;--muted:#6b7280}
+    body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;margin:0}
+    .navbar{background:rgba(15,17,23,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .navbar-brand{font-family:'Syne',sans-serif;font-weight:800;color:var(--yellow)!important}
+    .nav-link{color:var(--muted)!important;font-weight:500}
+    .nav-link:hover,.nav-link.active{color:var(--yellow)!important}
+    .page-hero{background:linear-gradient(135deg,#713f12,#ca8a04,#eab308);padding:80px 0 60px;text-align:center}
+    .page-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#0f1117}
+    .page-hero p{color:rgba(0,0,0,.7)}
+    .content-section{max-width:860px;margin:0 auto;padding:50px 20px}
+    h2{font-family:'Syne',sans-serif;font-weight:700;color:var(--yellow);margin-bottom:.8rem}
+    p{line-height:1.75;color:#cbd5e1}
+    .code-block{background:#0b0f1a;border:1px solid var(--border);border-left:3px solid var(--yellow);color:#e2e8f0;padding:1.2rem 1.5rem;border-radius:10px;font-family:Consolas,'Courier New',monospace;font-size:.9rem;overflow-x:auto;margin:1rem 0}
+    .output-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--yellow);padding:1.5rem;border-radius:10px;margin-bottom:2rem;font-family:Consolas,'Courier New',monospace;font-size:.95rem}
+    footer{background:#0b0f1a;border-top:1px solid var(--border);color:var(--muted);text-align:center;padding:1.2rem}
+    .run-btn{background:var(--yellow);color:#0f1117;border:none;padding:9px 22px;border-radius:8px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:.2s}
+    .run-btn:hover{background:#ca8a04}
+    #calc-result{color:#22d3ee;font-size:1.1rem;margin-top:8px;min-height:1.5rem}
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">AT Portfolio</a>
+      <button class="navbar-toggler border-0" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="fullstack.html"><i class="bi bi-layers me-1"></i>Full-Stack</a></li>
+          <li class="nav-item"><a class="nav-link" href="html.html"><i class="bi bi-filetype-html me-1"></i>HTML</a></li>
+          <li class="nav-item"><a class="nav-link" href="css.html"><i class="bi bi-filetype-css me-1"></i>CSS</a></li>
+          <li class="nav-item"><a class="nav-link" href="bootstrap.html"><i class="bi bi-bootstrap me-1"></i>Bootstrap</a></li>
+          <li class="nav-item"><a class="nav-link active" href="javascript.html"><i class="bi bi-filetype-js me-1"></i>JavaScript</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <h1><i class="bi bi-filetype-js me-2"></i>JavaScript</h1>
+    <p class="lead mt-2">The programming language that powers interactivity on the web</p>
+  </div>
+
+  <div class="content-section">
+
+    <section class="mb-5">
+      <h2><i class="bi bi-info-circle me-2"></i>What is JavaScript?</h2>
+      <p>JavaScript (JS) is a lightweight, interpreted programming language with first-class functions. Originally created to make web pages interactive, it has grown into one of the most widely used programming languages in the world — running both in browsers and on servers via Node.js.</p>
+      <p>JavaScript lets you dynamically update content, control multimedia, animate images, and respond to user actions like clicks and keyboard presses — all without reloading the page.</p>
+    </section>
+
+    <section class="mb-5">
+      <h2><i class="bi bi-terminal me-2"></i>Example 1: Variables &amp; Output</h2>
+      <p>JavaScript uses <code>let</code>, <code>const</code>, and <code>var</code> to store values. <code>console.log()</code> prints output:</p>
+      <div class="code-block"><pre>
+const name = "Asim Titung";
+const role = "Full Stack Developer";
+console.log("Name: " + name);
+console.log("Role: " + role);
+</pre></div>
+      <p class="mb-2 fw-semibold" style="color:var(--yellow)">Output:</p>
+      <div class="output-box">
+        <div style="color:#22d3ee">Name: Asim Titung</div>
+        <div style="color:#22d3ee">Role: Full Stack Developer</div>
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <h2><i class="bi bi-arrow-repeat me-2"></i>Example 2: Loops</h2>
+      <p>A <code>for</code> loop repeats a block of code a set number of times:</p>
+      <div class="code-block"><pre>
+const skills = ["HTML", "CSS", "JavaScript", "Node.js"];
+
+for (let i = 0; i &lt; skills.length; i++) {
+  console.log((i + 1) + ". " + skills[i]);
+}
+</pre></div>
+      <p class="mb-2 fw-semibold" style="color:var(--yellow)">Output:</p>
+      <div class="output-box">
+        <div style="color:#a3e635">1. HTML</div>
+        <div style="color:#a3e635">2. CSS</div>
+        <div style="color:#a3e635">3. JavaScript</div>
+        <div style="color:#a3e635">4. Node.js</div>
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <h2><i class="bi bi-braces me-2"></i>Example 3: Functions</h2>
+      <p>Functions are reusable blocks of logic. Here's a live interactive example — click the button to run it:</p>
+      <div class="code-block"><pre>
+function multiply(a, b) {
+  return a * b;
+}
+
+const result = multiply(7, 6);
+console.log("7 × 6 = " + result);
+</pre></div>
+      <p class="mb-2 fw-semibold" style="color:var(--yellow)">Output (live):</p>
+      <div class="output-box">
+        <button class="run-btn mb-3" onclick="runCalc()"><i class="bi bi-play-fill me-1"></i>Run Function</button>
+        <div id="calc-result">Click the button to see output.</div>
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <h2><i class="bi bi-cursor-fill me-2"></i>Example 4: DOM Manipulation</h2>
+      <p>JavaScript can interact with HTML elements to change content, styles, or react to events:</p>
+      <div class="code-block"><pre>
+document.getElementById("greeting")
+  .textContent = "Hello from JavaScript!";
+
+document.getElementById("greet-btn")
+  .addEventListener("click", function() {
+    alert("Button clicked by Asim!");
+  });
+</pre></div>
+      <p class="mb-2 fw-semibold" style="color:var(--yellow)">Output (live):</p>
+      <div class="output-box">
+        <p id="greeting" style="color:#22d3ee;font-family:'DM Sans',sans-serif;margin-bottom:10px">Paragraph waiting for JavaScript...</p>
+        <button class="run-btn" id="greet-btn">Click Me</button>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p><i class="bi bi-filetype-js me-1"></i> © <script>document.write(new Date().getFullYear())</script> Asim Titung ePortfolio | JavaScript Module</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function runCalc() {
+      function multiply(a, b) { return a * b; }
+      const result = multiply(7, 6);
+      document.getElementById('calc-result').textContent = '7 × 6 = ' + result;
+    }
+    document.getElementById('greeting').textContent = 'Hello from JavaScript!';
+    document.getElementById('greet-btn').addEventListener('click', function() {
+      alert('Button clicked by Asim!');
+    });
+  </script>
+</body>
+</html>
